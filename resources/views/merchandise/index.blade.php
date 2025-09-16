@@ -12,11 +12,11 @@
 </head>
 <body>
 
-<h1>Welcome to the Home Page</h1>
+<h1>Welcome to the Merchandise Page</h1>
 <nav>
-    <a href="{{ route('home') }}">Home</a> |
-    <a href="{{ route('about') }}">About</a> |
-    <a href="{{ route('contact') }}">Contact</a>
+    <a >Home</a> |
+    <a href="/merchandise">Merchandise</a> |
+    <a href="/categories">Category</a>
 </nav>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -24,12 +24,3 @@
 </body>
 </html>
 
-<script>
-    let numbers = [1, 2, 3, 4, 5];
-
-numbers[2] = 10;
-numbers[4] = 20;
-numbers[7] = 30;
-
-console.log(numbers);
-</script>
