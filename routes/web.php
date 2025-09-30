@@ -4,12 +4,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MerchandiseController;
 use App\Http\Controllers\CategoryController;
 
-// Merchandise routes
 Route::get('/merchandise', [MerchandiseController::class, 'index']);
-
-// Category routes
 Route::get('/categories', [CategoryController::class, 'index']);
-
 // Route::get('/', function () {
 //     return view('home');
 // })->name('home');
