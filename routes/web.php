@@ -3,6 +3,9 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MerchandiseController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\PostController;
+
+Route::get('/posts', [PostController::class, 'index']);
 
 Route::get('/merchandise', [MerchandiseController::class, 'index']);
 Route::get('/categories', [CategoryController::class, 'index']);
