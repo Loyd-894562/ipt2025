@@ -1,1 +1,2 @@
+
 <h1>Hello you are in the Categories Page</h1>
