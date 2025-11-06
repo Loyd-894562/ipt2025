@@ -7,29 +7,47 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
-    <div class="container mt-5">
-        <h2 class="mb-4">Posts</h2>
-        <div class="row">
-            @foreach ($posts as $post)
-                <div class="col-md-4 mb-4">
-                    <div class="card shadow-sm h-100">
-                    <div class="card-body">
-                        <h5 class="card-title">{{ $post->title }}</h5>
-                        <p class="card-text">{{ \Illuminate\Support\Str::limit($post->description, 100) }}</p>
-                        @if($post->comment)
-                        <p class="text-muted"><small>Comment: {{ $post->comment }}</small></p>
-                        @endif
-                    </div>
-                    <div class="card-footer text-muted">
-                        Posted by {{ $post->user->name ?? 'Unknown' }} <br>
-                        {{ $post->created_at->format('M d, Y') }}
-                    </div>
-                </div>
+<div class="container mt-5">
+    <div class="d-flex justify-content-between-align-items-center mb-4">
+    <h2>Posts</h2>
+    <a href="{{ route('posts.create') }}" class="btn btn-primary">+ Create Post</a>
+    </div>
+
+    @if (session('success'))
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+        {{ session('success') }}
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+    @endif
+
+    <div class="row">
+        @forelse ($posts as $post)
+        <div class="col-md-4 mb-4">
+        <div class="card shadow-sm h-100">
+            <div class="card-body">
+                <h5 class="card-title">{{ $post->title }}</h5>
+                <p class="card-text"{{ \Illuminate\Support\Str::limit($post->description, 150) }}></p>
+                @if($post->comment)
+                <p class="text-muted"><small>Comment: {{ $post->comment }}</small></p>
+                @endif
+            </div>
         </div>
-        @endforeach
-    </div>   
+    </div>
+    @empty
+    <div class="col-12">
+    <p class="text-muted">No posts yet. Click "Create Post" to create one.</p>
+    </div>
+        @endforelse
+    </div>
+
+
+
+
 </div>
-  
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
+
+
